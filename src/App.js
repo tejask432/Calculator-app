@@ -1,4 +1,6 @@
 import React,{ useState } from "react";
+import './App.css'
+
 const App = () => {
     const [result, setResult]= useState(0);
     return(
@@ -8,13 +10,15 @@ const App = () => {
                     <input type="text" value={result}/>
                 </form> 
                 <div className="keypad">
-                    <button>MC</button>
-                    <button>MR</button>
-                    <button>M+</button>
-                    <button>M-</button>
-                    <button>MS</button>
-                    <button>M<sup><i class="fa-solid fa-caret-down"></i></sup></button>
-
+                    <div className="special-keys">
+                        <button>MC</button>
+                        <button>MR</button>
+                        <button>M+</button>
+                        <button>M-</button>
+                        <button>MS</button>
+                        <button>M<sup>&#9660;</sup></button>
+                    </div>
+                    <div className="keys">
                     <button>%</button>
                     <button><span>&#8730;</span></button>
                     <button>x<sup>2</sup></button>
@@ -44,7 +48,7 @@ const App = () => {
                     <button>0</button>
                     <button><b>.</b></button>
                     <button><i class="fa-solid fa-equals"></i></button>
-
+                    </div>
                 </div>
             </div>
         </>
