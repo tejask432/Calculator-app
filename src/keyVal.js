@@ -1,7 +1,26 @@
-
-const Keyval=[{
-    "label":'%',
-    "value":'&divide'
-}
-
-]
+const Keyval = [
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "x<sup>2</sup>", value: "powerof2" },
+    { label: "<sup>1</sup>/<sub></sub>x", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+    { label: "%", value: "%" },
+    { label: "<span>&#8730;</span>", value: "sqrt" },
+];
