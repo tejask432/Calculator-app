@@ -3,22 +3,45 @@ import React from "react";
 const Keypad = ({result,setResult,subResult,setSubResult}) => {
 
    const clickHandler = (e) =>{
-       e.preventDefault();
        if(e.target.value)
+            if(result==="0"|| result === "error"){
+                setResult( e.target.value);
+            }
+            else{
             setResult(result+ e.target.value);
+            }
     };
 
-   const clearHandler = () =>{
-       setResult(0);
+   const clearHandler = (e) =>{
+       let btnNameVal = e.target.name;
+        if(btnNameVal === "c"){
+            setResult("");
+            return;
+        }
+       setResult("0");
        setSubResult("")
     };
     
    const deleteHandler = () =>{
     setResult(result.slice(0,-1));
+    if(result ===''|| result.length === 1){
+        setResult("0");
+    }
    };
 
     const calculate =() =>{
-        console.log(result);
+        let resValue;
+        try{
+            resValue = eval(result).toString();
+        }
+        catch{
+            setResult("error");
+        }
+        if(resValue){
+            setSubResult(result);
+            setResult(resValue);
+        }
+        
     };
 
     return (

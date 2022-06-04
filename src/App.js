@@ -3,7 +3,7 @@ import './App.css'
 import Keypad from "./Keypad";
 
 const App = () => {
-    const [result, setResult]= useState(0);
+    const [result, setResult]= useState("0");
     const [subResult, setSubResult]= useState('');
 
   
