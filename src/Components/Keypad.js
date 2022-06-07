@@ -105,9 +105,11 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
             case "negate":
                 if (result.charAt(0) === "-") {
                 setResult(result.substring(1));
+                setA(a.substring(1));
                 } 
                 else {
                 setResult("-" + result);
+                setA("-"+ a)
                 }
                 break;
             case "eval":
@@ -115,14 +117,12 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
                     let temp = subResult;
                     if (temp[temp.length - 1] === '='){
                         temp = temp.slice(0, temp.length - 1)
-                        // temp += r
-                        // temp = '' + b +result
                     }
                     let tempA = a;
                     if (!tempA) tempA = result;
-                    // console.log(temp,A )
-                    setResult(eval(temp+tempA ))
-                    setSubResult(temp +tempA + '=')
+                    // console.log(temp,A ) 
+                    setResult((eval(temp+tempA )).toString());
+                    setSubResult(temp +tempA + '=');
                     setA('')
                     break;
                 }
