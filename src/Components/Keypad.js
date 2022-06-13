@@ -166,6 +166,7 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
                     setResult((eval(temp+tempA )).toString());
                     setSubResult(temp +tempA + '=');
                     setA('')
+                    setOperator("")
                     break;
                 }
             default:
