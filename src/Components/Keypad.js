@@ -33,51 +33,75 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
                     }
                     break;
                 }
+            case "%":
+            {
+                if(!(result.includes('%'))){
+                    setResult(result+ nameVal);
+                }
+                break;
+            }
             case "+": 
                 {//plus
-                    if(result==="0") break;
+                    let clickedOp = "+";
+                    if(result==="0") {
+                        handlerOperatorchange(clickedOp);
+                        break;
+                    }
+
                     let tempVal = result;
                     if (a) {
-                        tempVal = handleResult()
+                        tempVal = handleResult();
                     }
-                    setSubResult(tempVal + "+");
-                    setOperator("+");
+                    setSubResult(tempVal + clickedOp);
+                    setOperator(clickedOp);
                     setResult('0')
                     break;
                 }
             case "-":
                 {// minus
-                    if(result==="0") break;
+                    let clickedOp = "-";
+                    if(result==="0") {
+                        handlerOperatorchange(clickedOp);
+                        break;
+                    }
                     let tempVal = result;
                     if (a) {
                         tempVal = handleResult()
                     }
-                    setSubResult(tempVal + "-");
-                    setOperator("-");
+                    setSubResult(tempVal + clickedOp);
+                    setOperator(clickedOp);
                     setResult('0')
                     break;
                 }
             case "*": 
                 {// multiply
-                    if(result==="0") break;
+                    let clickedOp = "*";
+                    if(result==="0") {
+                        handlerOperatorchange(clickedOp);
+                        break;
+                    }
                     let tempVal = result;
                     if (a) {
                         tempVal = handleResult()
                     }
-                    setSubResult(tempVal + "*");
-                    setOperator("*");
+                    setSubResult(tempVal + clickedOp);
+                    setOperator(clickedOp);
                     setResult('0')
                     break;
                 }
             case "/": 
                 {// devide
-                    if(result==="0") break;
+                    let clickedOp = "/";
+                    if(result==="0") {
+                        handlerOperatorchange(clickedOp);
+                        break;
+                    }
                     let tempVal = result;
                     if (a) {
                         tempVal = handleResult()
                     }
-                    setSubResult(tempVal + "/");
-                    setOperator("/");
+                    setSubResult(tempVal + clickedOp);
+                    setOperator(clickedOp);
                     setResult('0')
                     break;
                 }
@@ -171,20 +195,16 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
         setOpcheck(false);
         return res;
     }
-    // const calculate = () => {
-    //   let resValue;
-    //   let expValue =subResult+ result;
-    //   try {
-    //     resValue = eval(expValue).toString();
-    //   } 
-    //   catch {
-    //     setResult("error");
-    //   }
-    //   if (resValue && result !== "0") {
-    //     setSubResult(expValue);
-    //     setResult(resValue);
-    //   }
-    // };
+
+    const handlerOperatorchange = (clickedOp) =>{
+        let lastOp = subResult[subResult.length -1];
+        console.log(lastOp);
+        if(lastOp !== clickedOp)
+        {
+            setSubResult(subResult.slice(0, -1) + clickedOp)
+        }
+    }
+
     const Mkeyhandler = (e) => {
         let MkeyValue = e.target.value;
         
@@ -248,36 +268,36 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
                 <button disabled={memory.length?false:true}>M<sup>&#9660;</sup></button> {/*  value="M" onClick={Mkeyhandler} */}
             </div>
             <div className="keys">
-                <button value="%" onClick={clickHandler}>%</button>
+                <button name="%" onClick={clickHandler}>%</button>
+                <button name="sqrt" onClick={clickHandler} ><span>&#8730;</span></button>
+                <button name="power" onClick={clickHandler}>x<sup>2</sup></button>
+                <button name="inverse" onClick={clickHandler}><sup>1</sup>/<sub></sub>x</button>
+                
                 <button name="clear" onClick={clickHandler}>CE</button>
                 <button name="c" onClick={clickHandler}>C</button>
                 <button name="delete" onClick={deleteHandler}><i className="fa-solid fa-delete-left"></i></button>
+                <button name="/" onClick={clickHandler} className="opbtn">&divide;</button>
                 
-                <button name="inverse" onClick={clickHandler}><sup>1</sup>/<sub></sub>x</button>
-                <button name="power" onClick={clickHandler}>x<sup>2</sup></button>
-                <button name="sqrt" onClick={clickHandler} ><span>&#8730;</span></button>
-                <button name="/" onClick={clickHandler}>&divide;</button>
+                <button value="7" onClick={clickHandler} className="keybtn">7</button>
+                <button value="8" onClick={clickHandler} className="keybtn">8</button>
+                <button value="9" onClick={clickHandler} className="keybtn">9</button>
+                <button name="*" onClick={clickHandler} className="opbtn">x</button>
                 
-                <button value="7" onClick={clickHandler}>7</button>
-                <button value="8" onClick={clickHandler}>8</button>
-                <button value="9" onClick={clickHandler}>9</button>
-                <button name="*" onClick={clickHandler}>x</button>
+                <button value="4" onClick={clickHandler} className="keybtn">4</button>
+                <button value="5" onClick={clickHandler} className="keybtn">5</button>
+                <button value="6" onClick={clickHandler} className="keybtn">6</button>
+                <button name="-" onClick={clickHandler} className="opbtn">&ndash;</button>
                 
-                <button value="4" onClick={clickHandler}>4</button>
-                <button value="5" onClick={clickHandler}>5</button>
-                <button value="6" onClick={clickHandler}>6</button>
-                <button name="-" onClick={clickHandler}>&ndash;</button>
-                
-                <button value="1" onClick={clickHandler}>1</button>
-                <button value="2" onClick={clickHandler}>2</button>
-                <button value="3" onClick={clickHandler}>3</button>
-                <button name="+" onClick={clickHandler}>+</button>
+                <button value="1" onClick={clickHandler} className="keybtn">1</button>
+                <button value="2" onClick={clickHandler} className="keybtn">2</button>
+                <button value="3" onClick={clickHandler} className="keybtn">3</button>
+                <button name="+" onClick={clickHandler} className="opbtn">+</button>
                 
                 <button name="negate" onClick={clickHandler}>+/-</button>
-                <button value="0" onClick={clickHandler}>0</button>
+                <button value="0" onClick={clickHandler} className="keybtn">0</button>
                 <button name="." onClick={clickHandler}><b>.</b></button>
 
-                <button name="eval" onClick={clickHandler} id="result">=</button>
+                <button name="eval" onClick={clickHandler} className="opbtn">=</button>
             </div>
         </div>
     );

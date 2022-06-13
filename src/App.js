@@ -11,9 +11,9 @@ const App = () => {
         <>
             <div className="container">
                 <div className="header">
-                    <button><i className="fa-solid fa-bars"></i></button>
-                    <h2>Calculator</h2>
-                    <button><i className="fa-solid fa-clock-rotate-left"></i></button>
+                    <button className="flex-item item-1"><i className="fa-solid fa-bars"></i></button>
+                    <h2 className="flex-item item-2">Calculator</h2>
+                    <button className="flex-item item-3"><i className="fa-solid fa-clock-rotate-left"></i></button>
                 </div>
                 <div>
                     <input id="sub-text" type="text" value={subResult} disabled/>
