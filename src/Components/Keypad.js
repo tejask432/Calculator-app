@@ -43,7 +43,7 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
             case "+": 
                 {//plus
                     let clickedOp = "+";
-                    if(result==="0") {
+                    if(result==="0" && subResult !== "") {
                         handlerOperatorchange(clickedOp);
                         break;
                     }
@@ -60,7 +60,7 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
             case "-":
                 {// minus
                     let clickedOp = "-";
-                    if(result==="0") {
+                    if(result==="0" && subResult !== "") {
                         handlerOperatorchange(clickedOp);
                         break;
                     }
@@ -76,7 +76,7 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
             case "*": 
                 {// multiply
                     let clickedOp = "*";
-                    if(result==="0") {
+                    if(result==="0" && subResult !== "") {
                         handlerOperatorchange(clickedOp);
                         break;
                     }
@@ -92,7 +92,7 @@ const Keypad = ({result,setResult,subResult,setSubResult}) => {
             case "/": 
                 {// devide
                     let clickedOp = "/";
-                    if(result==="0") {
+                    if(result==="0" && subResult !== "") {
                         handlerOperatorchange(clickedOp);
                         break;
                     }
