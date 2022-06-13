@@ -15,10 +15,10 @@ const App = () => {
                     <h2>Calculator</h2>
                     <button><i className="fa-solid fa-clock-rotate-left"></i></button>
                 </div>
-                <form>
+                <div>
                     <input id="sub-text" type="text" value={subResult} disabled/>
                     <input id="main-text" type="text" value={result} disabled/>
-                </form> 
+                </div> 
                 
                 <Keypad
                 result={result}
